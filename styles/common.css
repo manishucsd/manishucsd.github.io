@@ -1,0 +1,292 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* end reset */
+
+/* hacks */
+/* work around mobile device auto-fitting */
+@media only screen and (max-device-width:800px){
+    p{background-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)}
+}
+/* end hacks. well,... */
+
+/* fonts */
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/lato-lig-webfont.eot');
+    src: url('../fonts/lato/lato-lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato/lato-lig-webfont.woff') format('woff'),
+         url('../fonts/lato/lato-lig-webfont.ttf') format('truetype'),
+         url('../fonts/lato/lato-lig-webfont.svg#lato') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/lato-reg-webfont.eot');
+    src: url('../fonts/lato/lato-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato/lato-reg-webfont.woff') format('woff'),
+         url('../fonts/lato/lato-reg-webfont.ttf') format('truetype'),
+         url('../fonts/lato/lato-reg-webfont.svg#lato') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/lato-ligita-webfont.eot');
+    src: url('../fonts/lato/lato-ligita-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato/lato-ligita-webfont.woff') format('woff'),
+         url('../fonts/lato/lato-ligita-webfont.ttf') format('truetype'),
+         url('../fonts/lato/lato-ligita-webfont.svg#lato') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face{
+    font-family:"Wunderfont";
+    src: url("../fonts/wunderfont/wunderfont_08-webfont.eot");
+    src: url("../fonts/wunderfont/wunderfont_08-webfont.eot?#iefix") format('embedded-opentype'),
+         url("../fonts/wunderfont/wunderfont_08-webfont.woff") format('woff'),
+         url("../fonts/wunderfont/wunderfont_08-webfont.ttf") format('truetype'),
+         url("../fonts/wunderfont/wunderfont_08-webfont.svg#Wunderfont") format('svg');
+    font-weight:normal;
+    font-style:normal;
+}
+@font-face {
+    font-family: 'segoe_print';
+    src: url('../fonts/segoepr/segoepr-webfont.eot');
+    src: url('../fonts/segoepr/segoepr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/segoepr/segoepr-webfont.woff') format('woff'),
+         url('../fonts/segoepr/segoepr-webfont.ttf') format('truetype'),
+         url('../fonts/segoepr/segoepr-webfont.svg#segoe_print') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* end fonts */
+
+/* palette
+ * grey -> #89a
+ * dark grey -> #555
+ * red -> #f66
+ * green -> #2db
+ * blue -> #39d
+ * light blue -> #8ce
+ * violet -> #88e
+ * orange -> #ea7
+ */
+
+/* begin global */
+input[type="text"], input[type="password"], input[type="email"],
+input[type="number"], input[type="url"], input[type="tel"]{
+    margin:0; padding:5px 2px;
+    border:1px solid #ccc; border-top-color:#999; border-left-color:#999;
+    box-shadow:1px 1px 1px -1px #999 inset;
+}
+input[type="submit"], select{
+    box-sizing:content-box; -moz-box-sizing:content-box;
+    -webkit-appearance:none; -webkit-border-radius:0; /* -webkit for fixing rounded corners on iPhone*/
+}
+a{color:#39d; text-decoration:none; transition:color .2s}
+em{font-weight:bold}
+strong{font-weight:bold; background:rgba(0,0,0,.1); padding:1px 5px}
+small{font-size:0.8em; color:#999}
+body{
+    min-width:980px; background:#fcfcfc;
+    font:14px/1.5em lato, Verdana, Helvetica, Arial, sans-serif;
+    color:#222; /*text-shadow:0 0 1px rgba(0,0,0,.1)*/
+}
+h1{font-size:1.5em}
+h2{font-size:1.2em}
+sup{vertical-align:super; line-height:1em; font-size:smaller}
+i{font-style:italic}
+/* end global */
+
+/* begin util */
+.clear{clear:both}
+.error, .errorlist{color:#f66; transition:color .2s}
+
+.btn, .btn-small, .btn-clr, .btn-clr-small{
+    color:#fff; border:1px solid; display:inline-block; cursor:pointer; transition:all .4s;
+}
+.btn, .btn-clr{font-size:24px; padding:0 30px; height:60px; line-height:60px}
+.btn-small, .btn-clr-small{font-size:16px; padding:0 15px; height:30px; line-height:30px}
+
+.btn, .btn-small{background:#f66; border-color:#f66}
+.btn-clr, .btn-clr-small{background:none;  border-color:#fff}
+.btn:hover, .btn-small:hover, .btn-clr:hover, .btn-clr-small:hover{background:#f77; border-color:#f77}
+/* end util */
+
+/* begin common */
+body{background:url(../images/texture.png) fixed; position:relative}
+header{
+    position:fixed; width:100%; left:0; top:0; z-index:1;
+    background:rgba(0,0,0,.15); color:#fff;
+    line-height:66px;
+}
+header a.title{
+    float:left; padding:0 20px; background:rgba(255,255,255,.1);
+    font-family:segoe_print, cursive, sans-serif; font-size:1.8em; font-weight:bold; color:#fff; text-shadow:1px 1px 1px #444;
+}
+header ul.nav{font-family:lato, sans-serif; float:left; margin-left:160px; font-size:20px}
+header ul.nav li{float:left; margin:0; transition:all .4s}
+header ul.nav li a{color:#fff; display:inline-block; padding:0 20px;}
+header ul.nav li.current{background:rgba(255,255,255,.3)}
+header ul.nav li:hover{background:rgba(255,255,255,.4)}
+header a.logo{
+    position:absolute; right:30px; top:30px; width:130px; height:130px;
+    color:transparent; background:url(../images/logo.png) no-repeat center;
+    transition: all 1s;
+}
+#spotlight{
+    position:fixed; left:0; top:0; width:100%; height:100%;
+    background:radial-gradient(circle at 80% 50%, rgba(180,180,180,.1), transparent);
+}
+#cnt{position:fixed; left:0; top:0; width:100%; height:100%}
+#content{transition:all 1s;}
+#cnt .page{
+    position:relative; padding:80px 20px 86px; color:#eee;
+    background-size:cover; background-position:center right;
+    background-repeat: no-repeat;
+}
+footer{
+    position:fixed; width:100%; left:0; bottom:0; z-index:1;
+    background:rgba(139,0,0,.8); color:#ccc;
+    line-height:60px;
+}
+footer a{color:#aaa}
+footer a:hover{color:#ccc}
+footer .copyright{color:#ccc; padding:0 20px; float:right;}
+footer .social{float:left; padding:0 20px}
+footer .social a{
+    float:left;
+    background:url() no-repeat center; color:transparent;
+    width:70px; height:60px; display:inline-block;
+    transition:all .4s;
+}
+footer .social a:hover{background-color:rgba(255,255,255,.3)}
+footer .social a.facebook{background-image:url(../images/icon_facebook.png)}
+footer .social a.twitter{background-image:url(../images/icon_twitter.png)}
+footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
+
+@media screen and (max-width: 700px){
+    header{text-align:center;}
+    header a.logo{display:none;}
+    header ul.nav{margin-left:0px; float:none;}
+    header ul.nav li{display:inline-block; width:25%;}
+    header ul.nav li a{padding:0; display:block;}
+    header a.title{float:none; display:block;}
+
+    footer{text-align:center;}
+    footer span.social{display:block; float:none;}
+    footer span.social a{float:none;}
+}
+/* end common */
+
+
+
+#cnt .page_shows{background-image:url(../images/bg_shows1.png); background-size:initial;}
+#cnt .page_contact{background-image:url(../images/bg_contact.png); background-position:150% 50%; background-size:initial;}
+
+#cnt .page_shows{padding:66px 0 61px 20px}
+#cnt .page_shows #shows-cnt{height:100%; overflow:auto}
+#cnt .page_shows ul.gcal-events li{padding:10px 0}
+#cnt .page_shows .gcal-events .day{float:left; width:100px}
+#cnt .page_shows .gcal-events .month{
+    display:inline-block; width:50px; border-radius:10px 10px 0 0;
+    background:#eee; color:#333;
+    font-weight:bold; padding:5px 10px; text-align:center; text-transform:uppercase;
+    border:1px solid #eee;
+}
+#cnt .page_shows .gcal-events .date{
+    display:inline-block; width:50px; border-radius:0 0 10px 10px;
+    background:#333; color:#eee; padding:5px 10px; text-align:center;
+    font-size:3em; line-height:1em; font-weight:bold;
+    border:1px solid #eee;
+}
+#cnt .page_shows .gcal-events .title{font-size:2em; line-height:2em}
+#cnt .page_shows .gcal-events .title a{color:#ee4}
+#cnt .page_shows .gcal-events .venue{font-size:1.2em; color:#ccc; margin-right:10px}
+#cnt .page_shows .gcal-events .place{color:#aaa}
+#cnt .page_shows #overlay{display:none}
+.overlay-visible .title{font-size:2em; line-height:2em; font-weight:bold}
+.overlay-visible .description{font-size:1.2em; line-height: 1.5em; padding-bottom:10px}
+.overlay-visible .date{font-size:1.2em; line-height:1.5em}
+.overlay-visible .venue{font-size:1.2em; line-height:1.5em; margin-right:10px}
+.overlay-visible .place{color:#666;}
+.overlay-visible .map{
+    margin: 20px auto;
+        border: 1px dashed #C0C0C0;
+        width: 600px;
+        height: 300px;
+}
+#cnt .page_shows .heading{padding:40px 10px 5px; margin-bottom:5px; width:50%; border-bottom:1px solid #999}
+#cnt .page_shows .heading h2{display:inline}
+#cnt .page_shows .heading .expand{margin-left:10px; cursor:pointer}
+#cnt .page_shows #gcal-events-archive{display:none}
+#facebox .close{width:1.5em; text-align:center}
+
+
+#cnt .page_shows #googleMap{
+    margin-top:20px;
+    width: 50%;
+    height: 300px;
+}
+#cnt .page_shows #googleMap .gm-style-iw{
+    color:#222;
+}
+
+@media screen and (max-width: 700px){
+    #cnt .page_intro p.m_one{right:20px; padding-left:20px;}
+    #cnt .page_intro p.m_two{left:80px; padding-right:20px;}
+    #cnt .page_intro p.m_three{
+        left:20px; padding-right:20px; bottom:200px;
+        text-align:center; line-height:1.5em;
+    }
+}
