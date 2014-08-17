@@ -16,6 +16,13 @@ $(function(){
 	$('header .burger').click(function(){
 		$('header').toggleClass('active');
 	});
+
+	$('.page_headshots .carousel').slick({
+		'dots': true,
+		'infinite': false,
+		//'prevArrow': '.page_headshots .carousel-cnt .cbtn.back',
+		//'nextArrow': '.page_headshots .carousel-cnt .cbtn.next',
+	});
 });
 
 function pageIndex(){

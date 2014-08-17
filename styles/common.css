@@ -112,6 +112,7 @@ table {
  */
 
 /* begin global */
+img{max-width:100%}
 input[type="text"], input[type="password"], input[type="email"],
 input[type="number"], input[type="url"], input[type="tel"]{
     margin:0; padding:5px 2px;
@@ -232,6 +233,20 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 
 #cnt .page_home{font-size:1.2em; line-height:1.5em}
 
+#cnt .page_headshots .carousel-cnt{margin:40px auto; padding:0 150px; position:relative}
+#cnt .page_headshots .carousel-cnt .cbtn{
+    position:absolute; top:50%;
+    font-size:30px; width:100px; line-height:50px; margin-top:-15px;
+    background:rgba(255,255,255,.1); cursor:pointer; text-align:center;
+}
+#cnt .page_headshots .carousel-cnt .cbtn.back{left:50px}
+#cnt .page_headshots .carousel-cnt .cbtn.next{right:50px}
+#cnt .page_headshots .carousel-cnt .cbtn.slick-disabled{color:#aaa}
+#cnt .page_headshots .carousel{background:rgba(255,255,255,.1)}
+#cnt .page_headshots .carousel .slick-slide{text-align:center}
+#cnt .page_headshots .carousel .slick-slide img{margin:0 auto; max-height:600px}
+#cnt .page_headshots .carousel .slick-dots li button:before{color:#fff}
+
 #cnt .page_media .video{margin:40px 0}
 #cnt .page_media .video a{display:none; font-size:1.2em; line-height:1.5em; margin-left:10px}
 #cnt .page_media .news .heading{padding:40px 10px 5px; margin-bottom:5px; width:50%; border-bottom:1px solid #999}
@@ -300,6 +315,11 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 
     #cnt .page_home{background-size:contain}
 
+    #cnt .page_headshots .carousel-cnt{padding:0}
+    #cnt .page_headshots .carousel-cnt .cbtn{display:none !important}
+    #cnt .page_headshots .carousel-cnt .slick-prev{display:none !important}
+    #cnt .page_headshots .carousel-cnt .slick-next{display:none !important}
+
     #cnt .page_media .news .heading{width:auto}
 
     #cnt .page_shows .heading{width:auto}
@@ -308,5 +328,4 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 @media screen and (max-width: 600px){
     #cnt .page_media .video iframe{display:none}
     #cnt .page_media .video a{display:block}
-    #cnt .page_media .video a img{width:100%}
 }
