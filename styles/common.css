@@ -191,10 +191,12 @@ header a.logo{
 #cnt{position:fixed; left:0; top:0; width:100%; height:100%}
 #content{transition:all 1s;}
 #cnt .page{
-    position:relative; padding:80px 20px 86px; color:#eee;
-    background-size:cover; background-position:center right;
+    position:relative; padding:66px 0 60px; color:#eee;
+    background-position:center right;
     background-repeat: no-repeat;
 }
+#cnt .page .page-cnt{height:100%; overflow:auto; padding:0 20px}
+#cnt .page .page-cnt .box{width:50%; margin:40px 0; padding:20px; background:rgba(0,0,0,.5)}
 footer{
     position:fixed; width:100%; left:0; bottom:0; z-index:1;
     background:rgba(139,0,0,.8); color:#ccc;
@@ -230,12 +232,14 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 /* end common */
 
 
+#cnt .page_home{background-color:#000; background-image:url(../images/bg_about.jpg); background-position:bottom right}
+#cnt .page_shows{background-image:url(../images/bg_shows1.png)}
+#cnt .page_contact{background-image:url(../images/bg_contact.png)}
 
-#cnt .page_shows{background-image:url(../images/bg_shows1.png); background-size:initial;}
-#cnt .page_contact{background-image:url(../images/bg_contact.png); background-position:150% 50%; background-size:initial;}
+#cnt .page_home{font-size:1.2em; line-height:1.5em}
+#cnt .page_home p a{color:#ee4}
+#cnt .page_home .sign{padding-left:20px}
 
-#cnt .page_shows{padding:66px 0 61px 20px}
-#cnt .page_shows #shows-cnt{height:100%; overflow:auto}
 #cnt .page_shows ul.gcal-events li{padding:10px 0}
 #cnt .page_shows .gcal-events .day{float:left; width:100px}
 #cnt .page_shows .gcal-events .month{
@@ -281,6 +285,11 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_shows #googleMap .gm-style-iw{
     color:#222;
 }
+
+#cnt .page_contact p{color:#ddd; font-size:1.5em; line-height:1.5em}
+#cnt .page_contact .box:first-child{margin-top:80px}
+#cnt .page_contact a{color:#ee4}
+#cnt .page_contact p.ps{color:#aaa; margin-top:20px}
 
 @media screen and (max-width: 700px){
     #cnt .page_intro p.m_one{right:20px; padding-left:20px;}
