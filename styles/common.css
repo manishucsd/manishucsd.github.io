@@ -122,7 +122,7 @@ input[type="submit"], select{
     box-sizing:content-box; -moz-box-sizing:content-box;
     -webkit-appearance:none; -webkit-border-radius:0; /* -webkit for fixing rounded corners on iPhone*/
 }
-a{color:#39d; text-decoration:none; transition:color .2s}
+a{color:#ee4; text-decoration:none; transition:color .2s}
 em{font-weight:bold}
 strong{font-weight:bold; background:rgba(0,0,0,.1); padding:1px 5px}
 small{font-size:0.8em; color:#999}
@@ -231,8 +231,12 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_contact{background-image:url(../images/bg_contact.png)}
 
 #cnt .page_home{font-size:1.2em; line-height:1.5em}
-#cnt .page_home p a{color:#ee4}
-#cnt .page_home .sign{padding-left:20px}
+
+#cnt .page_media .video{margin:40px 0}
+#cnt .page_media .video a{display:none; font-size:1.2em; line-height:1.5em; margin-left:10px}
+#cnt .page_media .news .heading{padding:40px 10px 5px; margin-bottom:5px; width:50%; border-bottom:1px solid #999}
+#cnt .page_media .news a{display:block; margin:10px 0 10px 10px}
+
 
 #cnt .page_shows ul.gcal-events li{padding:10px 0}
 #cnt .page_shows .gcal-events .day{float:left; width:100px}
@@ -249,7 +253,6 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
     border:1px solid #eee;
 }
 #cnt .page_shows .gcal-events .title{font-size:2em; line-height:2em}
-#cnt .page_shows .gcal-events .title a{color:#ee4}
 #cnt .page_shows .gcal-events .venue{font-size:1.2em; color:#ccc; margin-right:10px}
 #cnt .page_shows .gcal-events .place{color:#aaa}
 #cnt .page_shows #overlay{display:none}
@@ -285,7 +288,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_contact p{color:#ddd; font-size:1.5em; line-height:1.5em}
 #cnt .page_contact .box:first-child{margin-top:80px}
 #cnt .page_contact p .email{margin-left:20px}
-#cnt .page_contact a{color:#ee4; text-decoration:underline}
+#cnt .page_contact a{text-decoration:underline}
 
 @media screen and (max-width: 980px){
     #cnt .page_intro p.m_one{right:20px; padding-left:20px;}
@@ -295,6 +298,13 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
         text-align:center; line-height:1.5em;
     }
 
+    #cnt .page_media .news .heading{width:auto}
+
     #cnt .page_shows .heading{width:auto}
     .overlay-visible .map{width:100%}
+}
+@media screen and (max-width: 600px){
+    #cnt .page_media .video iframe{display:none}
+    #cnt .page_media .video a{display:block}
+    #cnt .page_media .video a img{width:100%}
 }
