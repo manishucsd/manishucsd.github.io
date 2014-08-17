@@ -163,7 +163,8 @@ header a.title{
     float:left; padding:0 20px; background:rgba(255,255,255,.1);
     font-family:segoe_print, cursive, sans-serif; font-size:1.8em; font-weight:bold; color:#fff; text-shadow:1px 1px 1px #444;
 }
-header ul.nav{font-family:lato, sans-serif; float:left; margin-left:160px; font-size:20px}
+header .burger{display:none; background:rgba(255,255,255,.1) url(../images/burger.png) no-repeat center; color:transparent; cursor:pointer}
+header ul.nav{font-family:lato, sans-serif; float:left; margin-left:60px; font-size:20px}
 header ul.nav li{float:left; margin:0; transition:all .4s}
 header ul.nav li a{color:#fff; display:inline-block; padding:0 20px;}
 header ul.nav li.current{background:rgba(255,255,255,.3)}
@@ -206,16 +207,20 @@ footer .social a.facebook{background-image:url(../images/icon_facebook.png)}
 footer .social a.twitter{background-image:url(../images/icon_twitter.png)}
 footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 
-@media screen and (max-width: 700px){
-    header{text-align:center;}
+@media screen and (max-width: 980px){
+    body{min-width:0}
+
     header a.logo{display:none;}
-    header ul.nav{margin-left:0px; float:none;}
-    header ul.nav li{display:inline-block; width:25%;}
+    header .burger{float:right; display:block}
+    header ul.nav{display:none; position:absolute; left:0; right:0; top:66px; margin-left:0px; float:none; background:rgba(0,0,0,.5)}
+    header ul.nav li{float:none; text-align:center}
     header ul.nav li a{padding:0; display:block;}
-    header a.title{float:none; display:block;}
+    header.active ul.nav{display:initial}
+
+    #cnt .page .page-cnt .box{width:auto}
 
     footer{text-align:center;}
-    footer span.social{display:block; float:none;}
+    footer span.social{padding-left:0}
     footer span.social a{float:none;}
 }
 /* end common */
@@ -263,6 +268,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_shows .heading h2{display:inline}
 #cnt .page_shows .heading .expand{margin-left:10px; cursor:pointer}
 #cnt .page_shows #gcal-events-archive{display:none}
+#facebox .content.overlay-visible{width:auto}
 #facebox .close{width:1.5em; text-align:center}
 
 
@@ -280,11 +286,14 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_contact a{color:#ee4}
 #cnt .page_contact p.ps{color:#aaa; margin-top:20px}
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 980px){
     #cnt .page_intro p.m_one{right:20px; padding-left:20px;}
     #cnt .page_intro p.m_two{left:80px; padding-right:20px;}
     #cnt .page_intro p.m_three{
         left:20px; padding-right:20px; bottom:200px;
         text-align:center; line-height:1.5em;
     }
+
+    #cnt .page_shows .heading{width:auto}
+    .overlay-visible .map{width:100%}
 }

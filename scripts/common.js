@@ -12,6 +12,10 @@ $(window).resize(function(){
 
 $(function(){
 	$(window).resize();
+
+	$('header .burger').click(function(){
+		$('header').toggleClass('active');
+	});
 });
 
 function pageIndex(){
@@ -26,6 +30,8 @@ function pageIndex(){
 }
 
 $(window).on('hashchange', function(){
+	$('header').removeClass('active');
+
 	var index = pageIndex();
 
 	var pageHeight = $('.page').outerHeight();
