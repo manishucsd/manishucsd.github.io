@@ -51,7 +51,8 @@ $(function(){
 	//http://www.google.com/calendar/feeds/your-calendar@gmail.com/public/full?orderby=starttime&sortorder=ascending&max-results=3&futureevents=true&alt=json
 	//var calendar_json_url = "http://www.google.com/calendar/feeds/ucsd.psyc.events@gmail.com/public/full?orderby=starttime&sortorder=ascending&max-results=3&futureevents=true&alt=json";
 	//var calendar_json_url = "http://www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json&orderby=starttime&max-results=3&singleevents=true&sortorder=ascending&futureevents=true";
-	var calendar_json_url = "http://www.google.com/calendar/feeds/rtl1ibhdl1lf23nnf3r7v34jak%40group.calendar.google.com/public/full?alt=json-in-script&callback=?";
+	//var calendar_json_url = "http://www.google.com/calendar/feeds/rtl1ibhdl1lf23nnf3r7v34jak%40group.calendar.google.com/public/full?alt=json-in-script&callback=?";
+	var calendar_json_url = "http://www.google.com/calendar/feeds/bigmanni.comedy%40gmail.com/public/full?alt=json-in-script&callback=?";
 	jQuery.getJSON(calendar_json_url, function(data){
 		//console.debug(data.feed.entry);
 		if(data.feed.entry.length > 0){
@@ -84,7 +85,7 @@ $(function(){
 			$.facebox.settings.closeImage = 'images/closelabel.png';
 	    	//$('a[rel*=facebox]').facebox();
 
-	    	$('#gcal-events a[id^="cal-entry-"]').click(function(){
+               $('.page_shows a[id^="cal-entry-"]').click(function(){
 	    		var index = parseInt(this.id.substring(10));
 	    		var item = calData[index];
 
