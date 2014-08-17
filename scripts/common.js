@@ -25,14 +25,6 @@ function pageIndex(){
 	return 0;
 }
 
-$(window).scroll(function(){
-	var top = $(window).scrollTop();
-
-	var deg = 360 * pageIndex();
-	deg += ($(window).scrollTop() * 360) / $(window).height();
-	$('header a.logo').css('transform', 'rotate('+deg+'deg)');
-});
-
 $(window).on('hashchange', function(){
 	var index = pageIndex();
 

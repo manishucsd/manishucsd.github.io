@@ -87,16 +87,6 @@ table {
     font-style: italic;
 }
 
-@font-face{
-    font-family:"Wunderfont";
-    src: url("../fonts/wunderfont/wunderfont_08-webfont.eot");
-    src: url("../fonts/wunderfont/wunderfont_08-webfont.eot?#iefix") format('embedded-opentype'),
-         url("../fonts/wunderfont/wunderfont_08-webfont.woff") format('woff'),
-         url("../fonts/wunderfont/wunderfont_08-webfont.ttf") format('truetype'),
-         url("../fonts/wunderfont/wunderfont_08-webfont.svg#Wunderfont") format('svg');
-    font-weight:normal;
-    font-style:normal;
-}
 @font-face {
     font-family: 'segoe_print';
     src: url('../fonts/segoepr/segoepr-webfont.eot');
@@ -106,7 +96,6 @@ table {
          url('../fonts/segoepr/segoepr-webfont.svg#segoe_print') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /* end fonts */
@@ -266,9 +255,9 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 .overlay-visible .place{color:#666;}
 .overlay-visible .map{
     margin: 20px auto;
-        border: 1px dashed #C0C0C0;
-        width: 600px;
-        height: 300px;
+    border: 1px dashed #C0C0C0;
+    width: 600px;
+    height: 300px;
 }
 #cnt .page_shows .heading{padding:40px 10px 5px; margin-bottom:5px; width:50%; border-bottom:1px solid #999}
 #cnt .page_shows .heading h2{display:inline}
