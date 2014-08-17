@@ -158,14 +158,15 @@ body{background:url(../images/texture.png) fixed; position:relative}
 header{
     position:fixed; width:100%; left:0; top:0; z-index:1;
     background:rgba(0,0,0,.15); color:#fff;
-    line-height:66px;
+    line-height:66px; text-align:center;
 }
 header a.title{
     float:left; padding:0 20px; background:rgba(255,255,255,.1);
     font-family:segoe_print, cursive, sans-serif; font-size:1.8em; font-weight:bold; color:#fff; text-shadow:1px 1px 1px #444;
 }
+header .curtitle{display:none; font-size:20px}
 header .burger{display:none; background:rgba(255,255,255,.1) url(../images/burger.png) no-repeat center; color:transparent; cursor:pointer}
-header ul.nav{font-family:lato, sans-serif; float:left; margin-left:60px; font-size:20px}
+header ul.nav{float:left; margin-left:60px; font-size:20px}
 header ul.nav li{float:left; margin:0; transition:all .4s}
 header ul.nav li a{color:#fff; display:inline-block; padding:0 20px;}
 header ul.nav li.current{background:rgba(255,255,255,.3)}
@@ -213,6 +214,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
     body{min-width:0}
 
     header a.logo{display:none;}
+    header .curtitle{display:initial}
     header .burger{float:right; display:block}
     header ul.nav{display:none; position:absolute; left:0; right:0; top:66px; margin-left:0px; float:none; background:rgba(0,0,0,.5)}
     header ul.nav li{float:none; text-align:center}

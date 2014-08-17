@@ -36,8 +36,20 @@ function pageIndex(){
 	return 0;
 }
 
+function pageTitle(){
+	switch(location.hash){
+		case '#home': return 'About Me';
+		case '#headshots': return 'Headshots';
+		case '#media': return 'Media';
+		case '#shows': return 'Shows';
+		case '#contact': return 'Contact';
+	}
+	return '';
+}
+
 $(window).on('hashchange', function(){
 	$('header').removeClass('active');
+	$('header .curtitle').text(pageTitle());
 
 	var index = pageIndex();
 
