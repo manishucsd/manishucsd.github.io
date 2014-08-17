@@ -181,21 +181,22 @@ header a.logo{
 #cnt{position:fixed; left:0; top:0; width:100%; height:100%}
 #content{transition:all 1s;}
 #cnt .page{
-    position:relative; padding:66px 0 60px; color:#eee;
+    position:relative; padding-top:66px; color:#eee;
     background-position:center right;
     background-repeat: no-repeat;
 }
 #cnt .page .page-cnt{height:100%; overflow:auto; padding:0 20px}
+#cnt .page .page-cnt .page-cnt-pad{height:60px}
 #cnt .page .page-cnt .box{width:50%; margin:40px 0; padding:20px; background:rgba(0,0,0,.5)}
 footer{
-    position:fixed; width:100%; left:0; bottom:0; z-index:1;
-    background:rgba(139,0,0,.8); color:#ccc;
+    position:fixed; left:0; bottom:0; z-index:1;
+    background:rgba(0,0,0,.8); color:#ccc;
     line-height:60px;
 }
 footer a{color:#aaa}
 footer a:hover{color:#ccc}
 footer .copyright{color:#ccc; padding:0 20px; float:right;}
-footer .social{float:left; padding:0 20px}
+footer .social{float:left}
 footer .social a{
     float:left;
     background:url() no-repeat center; color:transparent;
@@ -220,7 +221,6 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
     #cnt .page .page-cnt .box{width:auto}
 
     footer{text-align:center;}
-    footer span.social{padding-left:0}
     footer span.social a{float:none;}
 }
 /* end common */
@@ -268,6 +268,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_shows .heading h2{display:inline}
 #cnt .page_shows .heading .expand{margin-left:10px; cursor:pointer}
 #cnt .page_shows #gcal-events-archive{display:none}
+#facebox{max-width:650px}
 #facebox .content.overlay-visible{width:auto}
 #facebox .close{width:1.5em; text-align:center}
 
@@ -283,8 +284,8 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 
 #cnt .page_contact p{color:#ddd; font-size:1.5em; line-height:1.5em}
 #cnt .page_contact .box:first-child{margin-top:80px}
-#cnt .page_contact a{color:#ee4}
-#cnt .page_contact p.ps{color:#aaa; margin-top:20px}
+#cnt .page_contact p .email{margin-left:20px}
+#cnt .page_contact a{color:#ee4; text-decoration:underline}
 
 @media screen and (max-width: 980px){
     #cnt .page_intro p.m_one{right:20px; padding-left:20px;}
