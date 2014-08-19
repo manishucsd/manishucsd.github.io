@@ -249,9 +249,10 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 #cnt .page_headshots .carousel .slick-slide img{margin:0 auto; max-height:600px}
 #cnt .page_headshots .carousel .slick-dots li button:before{color:#fff}
 
-#cnt .page_media .video{margin:40px 0}
+#cnt .page_media .video{margin:40px 0; text-align:center}
 #cnt .page_media .video a{display:none; font-size:1.2em; line-height:1.5em; margin-left:10px}
-#cnt .page_media .news .heading{padding:40px 10px 5px; margin-bottom:5px; width:50%; border-bottom:1px solid #999}
+#cnt .page_media .news{text-align:center}
+#cnt .page_media .news .heading{padding:40px 10px 5px; margin:0 auto 5px auto; width:50%; border-bottom:1px solid #999}
 #cnt .page_media .news a{display:block; margin:10px 0 10px 10px}
 
 
