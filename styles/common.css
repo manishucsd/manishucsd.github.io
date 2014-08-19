@@ -229,7 +229,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 /* end common */
 
 
-#cnt .page_home{background-image:url(../images/bg_about.png); background-position:bottom right}
+#cnt .page_home{background-color:#000; background-image:url(../images/bg_about.jpg); background-position:bottom right}
 #cnt .page_shows{background-image:url(../images/bg_shows1.png)}
 #cnt .page_contact{background-image:url(../images/bg_contact.png)}
 
@@ -315,7 +315,7 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
         text-align:center; line-height:1.5em;
     }
 
-    #cnt .page_home{background-size:contain}
+    //#cnt .page_home{background-size:contain}
 
     #cnt .page_headshots .carousel-cnt{padding:0}
     #cnt .page_headshots .carousel-cnt .cbtn{display:none !important}
