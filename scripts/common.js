@@ -75,6 +75,10 @@ $(function(){
 		if(data.feed.entry.length > 0){
 			calData = data.feed.entry;
 			jQuery.each(data.feed.entry, function(i, item){
+				if(item['gd$eventStatus']['value'] != 'http://schemas.google.com/g/2005#event.confirmed'){
+					return;
+				}
+				
 	      		// Render the event
 	      		var now = moment();
 	      		var datetime = moment(item['gd$when'][0].startTime);
