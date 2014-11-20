@@ -75,9 +75,8 @@ $(function(){
 		dataType: 'json',
 		success: function(data){
 			//do whatever you want with each
-			console.debug(data.items);
+			//console.debug(data.items);
 			if(data.items.length > 0){
-				calData = data.items;
 				var upcoming = [];
 				var archives = [];
 				var now = moment();
@@ -99,6 +98,7 @@ $(function(){
 					upcoming.push(item); // merge reverse sorted archives into upcoming
 				});
 
+				calData = upcoming;
 				jQuery.each(upcoming, function(i, item){
 					if(item.status != 'confirmed'){
 						return;
@@ -137,7 +137,7 @@ $(function(){
 					$.facebox(function(){
 						var overlay = $('#overlay');
 						overlay.find('.title').html(item.summary);
-						overlay.find('.description').html(item.description || '');
+						overlay.find('.description').html((item.description || '').replace(/\n/g, '<br />'));
 						var datetime = moment(item.start.dateTime);
 						overlay.find('.date').html(datetime.format('dddd, MMM D, h:mm a') + ' &ndash; ' + moment(item.end.dateTime).format('h:mm a'));
 						var place = item.location.split(',');
