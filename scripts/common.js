@@ -65,81 +65,107 @@ $(window).on('hashchange', function(){
 
 var calData = [];
 $(function(){
-	//http://www.google.com/calendar/feeds/your-calendar@gmail.com/public/full?orderby=starttime&sortorder=ascending&max-results=3&futureevents=true&alt=json
-	//var calendar_json_url = "http://www.google.com/calendar/feeds/ucsd.psyc.events@gmail.com/public/full?orderby=starttime&sortorder=ascending&max-results=3&futureevents=true&alt=json";
-	//var calendar_json_url = "http://www.google.com/calendar/feeds/developer-calendar@google.com/public/full?alt=json&orderby=starttime&max-results=3&singleevents=true&sortorder=ascending&futureevents=true";
-	//var calendar_json_url = "http://www.google.com/calendar/feeds/rtl1ibhdl1lf23nnf3r7v34jak%40group.calendar.google.com/public/full?alt=json-in-script&orderby=starttime&callback=?";
-	var calendar_json_url = "http://www.google.com/calendar/feeds/bigmanni.comedy%40gmail.com/public/full?alt=json-in-script&orderby=starttime&callback=?";
-	jQuery.getJSON(calendar_json_url, function(data){
-		//console.debug(data.feed.entry);
-		if(data.feed.entry.length > 0){
-			calData = data.feed.entry;
-			jQuery.each(data.feed.entry, function(i, item){
-				if(item['gd$eventStatus']['value'] != 'http://schemas.google.com/g/2005#event.confirmed'){
-					return;
-				}
-				
-	      		// Render the event
-	      		var now = moment();
-	      		var datetime = moment(item['gd$when'][0].startTime);
-	      		var selector = '#gcal-events';
-	      		if(datetime < now){
-	      			selector = '#gcal-events-archive';
-	      		}
-	      		var place = item['gd$where'][0].valueString.split(',');
-	      		jQuery(selector).append('<li>' +
-	      			'<div class="day">' +
-	      				'<div class="month">'+ datetime.format('MMM') +'</div>' +
-	      				'<div class="date">'+ datetime.format('D') +'</div>' +
-	      			'</div>' +
-	      			'<div class="title"><a href="#" id="cal-entry-'+i+'">' + item.title.$t +'</a></div>' +
-	      			'<div class="location">' +
-	      				'<span class="venue">'+ place[0] +'</span>' +
-	      				'<span class="place">'+ place.slice(1, -1).join(', ') +'</span>' +
-	      			'</div>' +
-	      			//item['gd$when'][0].startTime + ' - ' + item['gd$where'][0].valueString +
-	      			'<div class="clear"></div>' +
-	      			'</li>');
-	    	});
+	var myKey = 'AIzaSyABhOY_WhmxQg0T8sf90bM5vbLNleem71Y';
+	var calendarId = 'bigmanni.comedy@gmail.com';
+	var calUrl = 'https://www.googleapis.com/calendar/v3/calendars/' + calendarId+ '/events?key=' + myKey + '&singleEvents=true&orderBy=startTime';
 
-			$.facebox.settings.loadingImage = 'images/loading.gif';
-			$.facebox.settings.closeImage = 'images/closelabel.png';
-	    	//$('a[rel*=facebox]').facebox();
+	jQuery.ajax({
+		type: 'GET',
+		url: encodeURI(calUrl),
+		dataType: 'json',
+		success: function(data){
+			//do whatever you want with each
+			console.debug(data.items);
+			if(data.items.length > 0){
+				calData = data.items;
+				var upcoming = [];
+				var archives = [];
+				var now = moment();
+				jQuery.each(data.items, function(i, item){
+					if(item.status != 'confirmed'){
+						return;
+					}
 
-               $('.page_shows a[id^="cal-entry-"]').click(function(){
-	    		var index = parseInt(this.id.substring(10));
-	    		var item = calData[index];
-
-	    		$.facebox(function(){
-					var overlay = $('#overlay');
-					overlay.find('.title').html(item.title.$t);
-					overlay.find('.description').html(item.content.$t);
-					var datetime = moment(item['gd$when'][0].startTime);
-					overlay.find('.date').html(datetime.format('dddd, MMM D, h:mm a') + ' &ndash; ' + moment(item['gd$when'][0].endTime).format('h:mm a'));
-					var place = item['gd$where'][0].valueString.split(',');
-					overlay.find('.venue').html(place[0]);
-					overlay.find('.place').html(place.slice(1, -1).join(', '));
-
-					$.facebox({div:'#overlay'}, 'overlay-visible');
-
-					$('.overlay-visible .map').gmap3({
-						marker:{
-							address: item['gd$where'][0].valueString,
-						},
-						map:{
-							options:{
-								zoom: 16
-							}
-						}
-					});
+					var datetime = moment(item.start.dateTime);
+					if(datetime < now){
+						archives.unshift(item); // add at beginning
+					}
+					else{
+						upcoming.push(item);
+					}
 				});
 
-	    		return false;
-	    	});
-		}
-		else{
-			jQuery('#gcal-events').append('<li>No events listed</li>');
-		}
+				jQuery.each(archives, function(i, item){
+					upcoming.push(item); // merge reverse sorted archives into upcoming
+				});
+
+				jQuery.each(upcoming, function(i, item){
+					if(item.status != 'confirmed'){
+						return;
+					}
+
+					// Render the event
+					var datetime = moment(item.start.dateTime);
+					var selector = '#gcal-events';
+					if(datetime < now){
+						selector = '#gcal-events-archive';
+					}
+					var place = item.location.split(',');
+					jQuery(selector).append('<li>' +
+						'<div class="day">' +
+							'<div class="month">'+ datetime.format('MMM') +'</div>' +
+							'<div class="date">'+ datetime.format('D') +'</div>' +
+						'</div>' +
+						'<div class="title"><a href="#" id="cal-entry-'+i+'">' + item.summary +'</a></div>' +
+						'<div class="location">' +
+							'<span class="venue">'+ place[0] +'</span>' +
+							'<span class="place">'+ place.slice(1, -1).join(', ') +'</span>' +
+						'</div>' +
+						//item['gd$when'][0].startTime + ' - ' + item['gd$where'][0].valueString +
+						'<div class="clear"></div>' +
+						'</li>');
+				});
+
+				$.facebox.settings.loadingImage = 'images/loading.gif';
+				$.facebox.settings.closeImage = 'images/closelabel.png';
+				//$('a[rel*=facebox]').facebox();
+
+				   $('.page_shows a[id^="cal-entry-"]').click(function(){
+					var index = parseInt(this.id.substring(10));
+					var item = calData[index];
+
+					$.facebox(function(){
+						var overlay = $('#overlay');
+						overlay.find('.title').html(item.summary);
+						overlay.find('.description').html(item.description || '');
+						var datetime = moment(item.start.dateTime);
+						overlay.find('.date').html(datetime.format('dddd, MMM D, h:mm a') + ' &ndash; ' + moment(item.end.dateTime).format('h:mm a'));
+						var place = item.location.split(',');
+						overlay.find('.venue').html(place[0]);
+						overlay.find('.place').html(place.slice(1, -1).join(', '));
+
+						$.facebox({div:'#overlay'}, 'overlay-visible');
+
+						$('.overlay-visible .map').gmap3({
+							marker:{
+								address: item.location,
+							},
+							map:{
+								options:{
+									zoom: 16
+								}
+							}
+						});
+					});
+
+					return false;
+				});
+			}
+			else{
+				jQuery('#gcal-events').append('<li>No events listed</li>');
+			}
+		},
+		error: function(response){}
 	});
 });
 
