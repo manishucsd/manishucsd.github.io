@@ -189,8 +189,9 @@ header a.logo{
 }
 #cnt .page .page-cnt{height:100%; overflow:auto; padding:0 20px}
 #cnt .page .page-cnt .page-cnt-pad{height:60px}
-#cnt .page .page-cnt .box{width:50%; margin:40px 0; padding:20px; background:rgba(0,0,0,.5)}
+#cnt .page .page-cnt .box{width:50%; margin:40px auto; padding:20px; background:rgba(0,0,0,.6)}
 footer{
+    display:none;
     position:fixed; left:0; bottom:0; z-index:1;
     background:rgba(0,0,0,.8); color:#ccc;
     line-height:60px;
@@ -198,17 +199,18 @@ footer{
 footer a{color:#aaa}
 footer a:hover{color:#ccc}
 footer .copyright{color:#ccc; padding:0 20px; float:right;}
-footer .social{float:left}
-footer .social a{
-    float:left;
+.social a{
     background:url() no-repeat center; color:transparent;
     width:70px; height:60px; display:inline-block;
     transition:all .4s;
 }
-footer .social a:hover{background-color:rgba(255,255,255,.3)}
-footer .social a.facebook{background-image:url(../images/icon_facebook.png)}
-footer .social a.twitter{background-image:url(../images/icon_twitter.png)}
-footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
+.social a.facebook{background-image:url(../images/icon_facebook.png)}
+.social a.twitter{background-image:url(../images/icon_twitter.png)}
+.social a.instagram{background-image:url(../images/icon_instagram.png)}
+footer .social{float:left}
+footer .social a{float:left}
+footer .social a:hover{background-color:rgba(255,255,255,.3); color:transparent}
+
 
 @media screen and (max-width: 980px){
     body{min-width:0}
@@ -231,10 +233,11 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
 
 #cnt .page_home{font-family:"Gloria Hallelujah", cursive, sans-serif; background-color:#000; background-image:url(../images/bg_about.jpg); background-position:bottom right}
 #cnt .page_shows{background-image:url(../images/bg_shows1.png)}
-#cnt .page_contact{background-image:url(../images/bg_contact.png)}
+#cnt .page_contact{background-image:url(../images/bg_contact.png); background-position:center}
 
 #cnt .page_home{font-size:1.5em; line-height:1.5em}
 #cnt .page_home p{margin:20px 0}
+#cnt .page_home p.social{text-align:center}
 
 #cnt .page_headshots .carousel-cnt{margin:40px auto; padding:0 150px; position:relative}
 #cnt .page_headshots .carousel-cnt .cbtn{
@@ -304,7 +307,8 @@ footer .social a.youtube{background-image:url(../images/icon_youtube.png)}
     color:#222;
 }
 
-#cnt .page_contact p{color:#ddd; font-size:1.5em; line-height:1.5em}
+#cnt .page_contact p{margin:20px 0; color:#ddd; font-size:1.5em; line-height:1.5em}
+#cnt .page_contact p.social{text-align:center}
 #cnt .page_contact .box:first-child{margin-top:80px}
 #cnt .page_contact p .email{margin-left:20px}
 #cnt .page_contact a{text-decoration:underline}
