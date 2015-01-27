@@ -1,0 +1,38 @@
+
+html{
+  overflow-y: scroll;
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+}
+
+
+html.fsvs{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+html.fsvs #content{
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+html.fsvs #content > *{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
