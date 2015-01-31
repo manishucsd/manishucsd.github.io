@@ -1,12 +1,3 @@
-$(document).ready( function() {
-	// The HTML tag must have a class of fsvs
-	var fsvs = $.fn.fsvs({
-		speed : 1000,
-		bodyID : 'content',
-		selector : '> .page',
-		pagination : false,
-	});
-});
 
 $(window).resize(function(){
 	var winHeight = $(window).height();
@@ -14,13 +5,13 @@ $(window).resize(function(){
 	//$('body').height(winHeight);
 	//$('#spotlight').height(winHeight);
 	//$('#cnt').height(winHeight);
-	// $('.page').outerHeight(winHeight);
+	$('.page').outerHeight(winHeight);
 
 	$(window).triggerHandler('hashchange');
 });
 
 $(function(){
-	// $(window).resize();
+	$(window).resize();
 
 	$('header .burger').click(function(){
 		$('header').toggleClass('active');
@@ -189,4 +180,4 @@ $(function(){
 			dt.text('[+]');
 		}
 	});
-});
+})

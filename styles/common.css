@@ -183,7 +183,7 @@ header a.logo{
 #cnt{position:fixed; left:0; top:0; width:100%; height:100%}
 #content{transition:all 1s;}
 #cnt .page{
-    position:relative; /*padding-top:66px;*/ color:#eee;
+    position:relative; padding-top:66px; color:#eee;
     background-position:center right;
     background-repeat: no-repeat;
 }
