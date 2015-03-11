@@ -180,7 +180,7 @@ header a.logo{
     position:fixed; left:0; top:0; width:100%; height:100%;
     background:radial-gradient(circle at 80% 50%, rgba(180,180,180,.1), transparent);
 }
-#cnt{position:fixed; left:0; top:0; width:100%; height:100%}
+//#cnt{position:fixed; left:0; top:0; width:100%; height:100%}
 #content{transition:all 1s;}
 #cnt .page{
     position:relative; padding-top:66px; color:#eee;
@@ -232,8 +232,9 @@ footer .social a:hover{background-color:rgba(255,255,255,.3); color:transparent}
 
 
 #cnt .page_home{font-family:"Gloria Hallelujah", cursive, sans-serif; background-color:#000; background-image:url(../images/bg_about.jpg); background-position:bottom right}
+#cnt .page_media{background-color:rgba(0,0,0,.3)}
 #cnt .page_shows{background-image:url(../images/bg_shows1.png)}
-#cnt .page_contact{background-image:url(../images/bg_contact.png); background-position:center}
+#cnt .page_contact{background-color:rgba(0,0,0,.3); background-image:url(../images/bg_contact.png); background-position:center}
 
 #cnt .page_home{font-size:1.5em; line-height:1.5em}
 #cnt .page_home p{margin:20px 0}

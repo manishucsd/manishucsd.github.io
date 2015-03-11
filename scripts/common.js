@@ -1,11 +1,15 @@
 
+isSelfTriggered = false;
+isAnimating = false;
+
 $(window).resize(function(){
 	var winHeight = $(window).height();
 
 	//$('body').height(winHeight);
 	//$('#spotlight').height(winHeight);
 	//$('#cnt').height(winHeight);
-	$('.page').outerHeight(winHeight);
+	//$('.page').outerHeight(winHeight);
+	$('.page').css('min-height', winHeight-66);
 
 	$(window).triggerHandler('hashchange');
 });
@@ -55,11 +59,40 @@ $(window).on('hashchange', function(){
 
 	var pageHeight = $('.page').outerHeight();
 	
-	$('#content').css('transform', 'translate(0, -'+ (pageHeight*index) +'px)');
+	//$('#content').css('transform', 'translate(0, -'+ (pageHeight*index) +'px)');
+	if(!isSelfTriggered){
+		//$('body').scrollTo(pageHeight*index);
+		isAnimating = true;
+		$('body').animate({scrollTop: (pageHeight+66)*index}, 1000, 'swing', function(){
+			isAnimating = false;
+			$(window).scroll();
+		});
+	}
+	else{
+		isSelfTriggered = false;
+	}
 	$('header a.logo').css('transform', 'rotate('+ (360*index) +'deg)');
 
 	$('header ul.nav li').removeClass('current');
 	$('header ul.nav li a[href$="'+ location.hash +'"]').closest('li').addClass('current');
+});
+
+$(window).on('scroll', function(){
+	if(isAnimating) return;
+	var pageHeight = $('.page').outerHeight();
+	var top = $(window).scrollTop();
+	var page = Math.floor((top + pageHeight/2)/pageHeight);
+	var index = pageIndex();
+	if(page >= 0 && page <= 4 && page != index){
+		isSelfTriggered = true;
+		var hash = '#';
+		if(page == 0) hash += 'home';
+		if(page == 1) hash += 'headshots';
+		if(page == 2) hash += 'media';
+		if(page == 3) hash += 'shows';
+		if(page == 4) hash += 'contact';
+		location.href = hash;
+	}
 });
 
 
