@@ -322,7 +322,7 @@ footer .social a:hover{background-color:rgba(255,255,255,.3); color:transparent}
         text-align:center; line-height:1.5em;
     }
 
-    //#cnt .page_home{background-size:contain}
+    #cnt .page_home{/*background-size:contain;*/ font-size:1.2em}
 
     #cnt .page_headshots .carousel-cnt{padding:0}
     #cnt .page_headshots .carousel-cnt .cbtn{display:none !important}

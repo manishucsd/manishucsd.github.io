@@ -11,6 +11,7 @@ $(window).resize(function(){
 	//$('.page').outerHeight(winHeight);
 	$('.page').css('min-height', winHeight-66);
 
+	isSelfTriggered = true;
 	$(window).triggerHandler('hashchange');
 });
 
@@ -63,9 +64,9 @@ $(window).on('hashchange', function(){
 	if(!isSelfTriggered){
 		//$('body').scrollTo(pageHeight*index);
 		isAnimating = true;
-		$('body').animate({scrollTop: (pageHeight+66)*index}, 1000, 'swing', function(){
-			isAnimating = false;
-			$(window).scroll();
+		var hash = location.hash || '#home';
+		$('body').animate({scrollTop: $('.page_' + hash.substring(1)).offset().top}, 1000, 'swing', function(){
+			setTimeout(function(){isAnimating = false;}, 0);
 		});
 	}
 	else{
