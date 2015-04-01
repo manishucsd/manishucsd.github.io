@@ -11,13 +11,17 @@ $(window).resize(function(){
 	//$('.page').outerHeight(winHeight);
 	$('.page').css('min-height', winHeight-66);
 
-	isSelfTriggered = true;
+	var hash = location.hash;
+	if(hash = '' || hash == '#' || hash == '#home'){
+		isSelfTriggered = true;
+	}
+	else{
+		isSelfTriggered = false;
+	}
 	$(window).triggerHandler('hashchange');
 });
 
 $(function(){
-	$(window).resize();
-
 	$('header .burger').click(function(){
 		$('header').toggleClass('active');
 	});
@@ -28,6 +32,8 @@ $(function(){
 		//'prevArrow': '.page_headshots .carousel-cnt .cbtn.back',
 		//'nextArrow': '.page_headshots .carousel-cnt .cbtn.next',
 	});
+
+	$(window).resize();
 });
 
 function pageIndex(){
