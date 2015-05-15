@@ -1,5 +1,5 @@
 
-isSelfTriggered = false;
+isSelfTriggered = true;
 isAnimating = false;
 
 $(window).resize(function(){
@@ -49,6 +49,8 @@ function pageIndex(){
 
 function pageTitle(){
 	switch(location.hash){
+		case '':
+		case '#':
 		case '#home': return 'About Me';
 		case '#headshots': return 'Headshots';
 		case '#media': return 'Media';
@@ -86,9 +88,20 @@ $(window).on('hashchange', function(){
 
 $(window).on('scroll', function(){
 	if(isAnimating) return;
-	var pageHeight = $('.page').outerHeight();
-	var top = $(window).scrollTop();
-	var page = Math.floor((top + pageHeight/2)/pageHeight);
+
+	var win = $(window);
+	var middle = Math.floor(win.scrollTop() + win.height()/2);
+	var pages = $('.page');
+	var page = 0;
+	for(var i = 0; i < pages.length; i++){
+		var top = $(pages[i]).offset().top;
+		if(top > middle)
+			break;
+		page = i;
+	}
+	//var pageHeight = $('.page').outerHeight();
+	//var top = $(window).scrollTop();
+	//var page = Math.floor((top + pageHeight/2)/pageHeight);
 	var index = pageIndex();
 	if(page >= 0 && page <= 4 && page != index){
 		isSelfTriggered = true;
