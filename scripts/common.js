@@ -153,7 +153,7 @@ $(function(){
 
 				calData = upcoming;
 				jQuery.each(upcoming, function(i, item){
-					if(item.status != 'confirmed'){
+					if(item.status != 'confirmed' || item.visibility == 'private'){
 						return;
 					}
 
