@@ -163,20 +163,26 @@ $(function(){
 					if(datetime < now){
 						selector = '#gcal-events-archive';
 					}
-					var place = item.location.split(',');
-					jQuery(selector).append('<li>' +
+
+					var html = '<li>' +
 						'<div class="day">' +
 							'<div class="month">'+ datetime.format('MMM') +'</div>' +
 							'<div class="date">'+ datetime.format('D') +'</div>' +
 						'</div>' +
-						'<div class="title"><a href="#" id="cal-entry-'+i+'">' + item.summary +'</a></div>' +
-						'<div class="location">' +
+						'<div class="title"><a href="#" id="cal-entry-'+i+'">' + item.summary +'</a></div>';
+					if(item.location){
+						var place = item.location.split(',');
+
+						html += '<div class="location">' +
 							'<span class="venue">'+ place[0] +'</span>' +
 							'<span class="place">'+ place.slice(1, -1).join(', ') +'</span>' +
 						'</div>' +
 						//item['gd$when'][0].startTime + ' - ' + item['gd$where'][0].valueString +
 						'<div class="clear"></div>' +
-						'</li>');
+						'</li>';
+					}
+
+					jQuery(selector).append(html);
 				});
 
 				$.facebox.settings.loadingImage = 'images/loading.gif';
