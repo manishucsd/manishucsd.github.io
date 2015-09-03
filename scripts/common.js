@@ -199,9 +199,11 @@ $(function(){
 						overlay.find('.description').html((item.description || '').replace(/\n/g, '<br />'));
 						var datetime = moment(item.start.dateTime);
 						overlay.find('.date').html(datetime.format('dddd, MMM D, h:mm a') + ' &ndash; ' + moment(item.end.dateTime).format('h:mm a'));
-						var place = item.location.split(',');
-						overlay.find('.venue').html(place[0]);
-						overlay.find('.place').html(place.slice(1, -1).join(', '));
+						if(item.location){
+							var place = item.location.split(',');
+							overlay.find('.venue').html(place[0]);
+							overlay.find('.place').html(place.slice(1, -1).join(', '));
+						}
 
 						$.facebox({div:'#overlay'}, 'overlay-visible');
 
