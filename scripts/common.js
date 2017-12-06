@@ -73,7 +73,7 @@ $(window).on('hashchange', function(){
 		//$('body').scrollTo(pageHeight*index);
 		isAnimating = true;
 		var hash = location.hash || '#home';
-		$('body').animate({scrollTop: $('.page_' + hash.substring(1)).offset().top}, 1000, 'swing', function(){
+		$('html,body').animate({scrollTop: $('.page_' + hash.substring(1)).offset().top}, 1000, 'swing', function(){
 			setTimeout(function(){isAnimating = false;}, 0);
 		});
 	}
